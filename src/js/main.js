@@ -8,7 +8,8 @@ import rootReducer from './reducers/root-reducer';
 
 import resetStyles from '../scss/reset.scss';
 import appStyles from '../scss/app.scss';
-import Page1 from './pages/Page1';
+
+import UrlsListPage from './pages/UrlsListPage';
 
 const store = configureStore();
 
@@ -17,7 +18,7 @@ class App extends React.Component {
       return (
         <Provider store={store}>
             <Router>
-                <Page1> </Page1>
+                <UrlsListPage> </UrlsListPage>
             </Router>
         </Provider>
       );

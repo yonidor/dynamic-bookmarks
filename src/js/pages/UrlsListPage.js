@@ -1,12 +1,12 @@
 import React from 'react'
 import ReactDom from 'react-dom'
 import List from '../components/list';
-import UrlListItem from '../components/url-list-item';
-import ActionsPane from '../components/actions-pane';
-import ActionButton from '../components/action-button';
+import UrlListItem from '../components/UrlListItem';
+import ActionsPane from '../components/ActionsPane';
+import ActionButton from '../components/ActionButton';
 import { connect } from 'react-redux';
 
-class Page1 extends React.Component {
+class UrlsListPage extends React.Component {
     constructor(props){
         super(props);
         this.handleClick = this.handleClick.bind(this);
@@ -48,5 +48,5 @@ class Page1 extends React.Component {
 export default connect(
     mapStateToProps,
     null
-)(Page1);
+)(UrlsListPage);
 
