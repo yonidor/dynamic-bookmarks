@@ -1,3 +1,4 @@
+import "regenerator-runtime/runtime";
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Router, { Link, goBack, goTo } from 'route-lite';
@@ -11,7 +12,14 @@ import appStyles from '../scss/app.scss';
 
 import UrlsListPage from './pages/UrlsListPage';
 
-const store = configureStore();
+import createSagaMiddleware from 'redux-saga'
+import mySaga from './sagas/sagas'
+
+const sagaMiddleware = createSagaMiddleware();
+
+const store = configureStore([sagaMiddleware]);
+
+sagaMiddleware.run(mySaga);
 
 class App extends React.Component {
     render() {

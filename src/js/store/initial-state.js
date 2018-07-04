@@ -3,11 +3,15 @@ export default {
         items: [{
             id: "id1",
             name: "Product page",
-            url: "http://www.google.com"
+            template: "http://www.google.com",
+            parameters: ['catalogId', 'productId'],
+            parameterValues: {}
         },{
             id: "id2",
             name: "Catalog page",
-            url: "http://www.facebook.com"
+            template: "http://www.facebook.com",
+            parameters: ['catalogId'],
+            parameterValues: {}
         }],
         selectedItem: null
     }

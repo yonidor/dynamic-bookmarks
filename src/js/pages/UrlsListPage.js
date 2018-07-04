@@ -5,16 +5,13 @@ import UrlListItem from '../components/UrlListItem';
 import ActionsPane from '../components/ActionsPane';
 import ActionButton from '../components/ActionButton';
 import { connect } from 'react-redux';
+import UrlListItemContainer from '../components/UrlListItemContainer';
+import { openBookmarkRequest } from '../actions/actions';
 
 class UrlsListPage extends React.Component {
     constructor(props){
         super(props);
-        this.handleClick = this.handleClick.bind(this);
     }
-
-    handleClick() {
-        // goTo(Page2);
-    } 
 
     render() {
       return (
@@ -22,7 +19,7 @@ class UrlsListPage extends React.Component {
             <List>    
                 {
                     this.props.urlItemsList.map(urlItem =>
-                        <UrlListItem
+                        <UrlListItemContainer
                             key={urlItem.id}
                             {...urlItem}
                         />

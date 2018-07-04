@@ -36,7 +36,8 @@ table {
   border-spacing: 0; }
 
 #react-app-container {
-  width: 300px; }
+  width: 300px;
+  height: 500px; }
 
 .list__list--3DgIE {
   list-style-type: none; }
