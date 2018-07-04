@@ -3,7 +3,7 @@ export default {
         items: [{
             id: "id1",
             name: "Product page",
-            template: "http://www.google.com",
+            template: "http://www.shopyourway.com/{catalogId}/{productId}",
             parameters: ['catalogId', 'productId'],
             parameterValues: {}
         },{

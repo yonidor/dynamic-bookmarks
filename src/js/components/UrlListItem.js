@@ -8,9 +8,7 @@ export default class UrlListItem extends React.Component {
         super(props);
         this.openInNewTab = this.openInNewTab.bind(this);
         this.state = {
-            parameterValues: {
-
-            }
+            parameterValues: {}
         }
         for (var i=0; i < props.parameters; i++)
             state.parameterValueChanged[parameters[i]] = "";
@@ -21,7 +19,7 @@ export default class UrlListItem extends React.Component {
         this.props.openBookmarkRequest(this.props.template, this.state.parameterValues);
     }
 
-    handleChange(e) {
+    handleParameterValueChange(e) {
         var parameterValues = {...this.state.parameterValues}
         parameterValues[e.target.id] = e.target.value;
         this.setState({parameterValues})
@@ -41,7 +39,7 @@ export default class UrlListItem extends React.Component {
                             <input  
                                 type="text"       
                                 value={this.state.parameterValues[parameter]} 
-                                onChange={ this.handleChange.bind(this) } 
+                                onChange={ this.handleParameterValueChange.bind(this) } 
                                 id={parameter} />
                         </div>
                         
