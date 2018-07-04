@@ -14,11 +14,6 @@ import ActionButton from '../components/ActionButton';
 class BookmarksListPage extends React.Component {
     constructor(props){
         super(props);
-        this.goToAddBookmarkPage = this.goToAddBookmarkPage.bind(this);
-    }
-
-    goToAddBookmarkPage(){
-        goTo(AddBookmarkPage);
     }
 
     render() {
@@ -26,16 +21,16 @@ class BookmarksListPage extends React.Component {
         <div>
             <List>    
                 {
-                    this.props.urlItemsList.map(urlItem =>
+                    this.props.bookmarks.map(bookmark =>
                         <BookmarkListItemContainer
-                            key={urlItem.id}
-                            {...urlItem}
+                            key={bookmark.id}
+                            {...bookmark}
                         />
                     )
                 }
             </List>
             <ActionsPane>
-                <ActionButton type='add-bookmark' onClick={ this.goToAddBookmarkPage }>Save</ActionButton>
+                <ActionButton type='add-bookmark' onClick={ () => goTo(AddBookmarkPage) }> Add Bookmark </ActionButton>
             </ActionsPane>
         </div>
       );
@@ -44,7 +39,7 @@ class BookmarksListPage extends React.Component {
 
  function mapStateToProps(state){
      return {
-         urlItemsList: state.itemsList
+         bookmarks: state.bookmarks
      }
  } 
 

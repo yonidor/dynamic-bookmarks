@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux'
-import itemsList from './items-list'
+import bookmarks from './bookmarks-reducer'
 
 export default combineReducers({
-    itemsList
+    bookmarks
 })
