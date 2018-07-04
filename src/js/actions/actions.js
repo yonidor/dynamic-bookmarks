@@ -1,9 +1,18 @@
-import { SAVE_NEW_BOOKMARK } from './action-types'
+import { SAVE_NEW_BOOKMARK, DELETE_BOOKMARK } from './action-types'
 import { render } from '../utils/template-renderer'
 
 export function openBookmarkRequest(template, parameterValues){
     return (dispatch) => {
         chrome.tabs.create({url: render(template,parameterValues)});
+    }
+}
+
+export function deleteBookmark(bookmarkId){
+    return (dispatch) => {
+        dispatch({
+            type: DELETE_BOOKMARK,
+            bookmarkId: bookmarkId
+        });
     }
 }
 

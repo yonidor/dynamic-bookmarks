@@ -6,17 +6,13 @@ import { Link } from 'route-lite';
 export default class UrlListItem extends React.Component {
     constructor(props) {
         super(props);
-        this.openInNewTab = this.openInNewTab.bind(this);
+
         this.state = {
             parameterValues: {}
         }
         for (var i=0; i < props.parameters; i++)
             state.parameterValueChanged[parameters[i]] = "";
             
-    }
-
-    openInNewTab() {
-        this.props.openBookmarkRequest(this.props.template, this.state.parameterValues);
     }
 
     handleParameterValueChange(e) {
@@ -48,8 +44,8 @@ export default class UrlListItem extends React.Component {
                 <div className={styles.actions}>
                     <button>Edit</button>
                     <Link component={ EditUrlPage }> LALALA </Link>
-                    <button>Delete</button>
-                    <button onClick={ this.openInNewTab }>Open</button>
+                    <button onClick={ () => this.props.deleteBookmark(this.props.id) }> Delete</button>
+                    <button onClick={ () => this.props.openBookmarkRequest(this.props.template, this.state.parameterValues) }>Open</button>
                 </div>
             </li>
         )       
