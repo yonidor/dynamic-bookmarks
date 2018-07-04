@@ -36,11 +36,15 @@ export default class UrlListItem extends React.Component {
                 </div>
                 <div className={ styles.parametesPrompt }>
                     { this.props.parameters.map(parameter => 
-                        <input  
-                            type="text"       
-                            value={this.state.parameterValues[parameter]} 
-                            onChange={ this.handleChange.bind(this) } 
-                            id={parameter} />
+                        <div>
+                            <span> {parameter} </span>
+                            <input  
+                                type="text"       
+                                value={this.state.parameterValues[parameter]} 
+                                onChange={ this.handleChange.bind(this) } 
+                                id={parameter} />
+                        </div>
+                        
                     )}
                 </div>
                 <div className={styles.actions}>
