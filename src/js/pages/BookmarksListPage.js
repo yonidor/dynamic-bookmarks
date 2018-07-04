@@ -1,16 +1,17 @@
 import React from 'react'
 import ReactDom from 'react-dom'
+import { connect } from 'react-redux';
+
+import { goTo } from 'route-lite';
+
 import List from '../components/list';
-import UrlListItem from '../components/UrlListItem';
+import BookmarkListItemContainer from '../components/BookmarkListItemContainer';
+import AddBookmarkPage from './AddBookmarkPage';
+import BookmarkListItem from '../components/BookmarkListItem';
 import ActionsPane from '../components/ActionsPane';
 import ActionButton from '../components/ActionButton';
-import { connect } from 'react-redux';
-import UrlListItemContainer from '../components/UrlListItemContainer';
-import { openBookmarkRequest } from '../actions/actions';
-import { goTo } from 'route-lite';
-import AddBookmarkPage from './AddBookmarkPage';
 
-class UrlsListPage extends React.Component {
+class BookmarksListPage extends React.Component {
     constructor(props){
         super(props);
         this.goToAddBookmarkPage = this.goToAddBookmarkPage.bind(this);
@@ -26,7 +27,7 @@ class UrlsListPage extends React.Component {
             <List>    
                 {
                     this.props.urlItemsList.map(urlItem =>
-                        <UrlListItemContainer
+                        <BookmarkListItemContainer
                             key={urlItem.id}
                             {...urlItem}
                         />
@@ -51,5 +52,5 @@ class UrlsListPage extends React.Component {
 export default connect(
     mapStateToProps,
     null
-)(UrlsListPage);
+)(BookmarksListPage);
 

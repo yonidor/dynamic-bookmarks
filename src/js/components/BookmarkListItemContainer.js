@@ -1,5 +1,5 @@
 import React from 'react'
-import UrlListItem from './UrlListItem'
+import BookmarkListItem from './BookmarkListItem'
 import { openBookmarkRequest, deleteBookmark } from '../actions/actions'
 
 import { connect } from 'react-redux'
@@ -12,4 +12,4 @@ const mapDispatchToProps = {
 export default connect(
     null,
     mapDispatchToProps
-)(UrlListItem);
+)(BookmarkListItem);

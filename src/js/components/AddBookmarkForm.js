@@ -1,8 +1,6 @@
-import styles from "../../scss/components/url-list-item.scss";
 import React from 'react'
-import EditUrlPage from '../pages/EditUrlPage'
 import { Link, goTo } from 'route-lite';
-import UrlsListPage from "../pages/UrlsListPage";
+import BookmarksListPage from "../pages/BookmarksListPage";
 
 export default class AddBookmarkForm extends React.Component {
     constructor(props) {
@@ -19,7 +17,7 @@ export default class AddBookmarkForm extends React.Component {
 
     onSave(e){
         this.props.saveNewBookmark(this.state.name, this.state.template);
-        goTo(UrlsListPage);
+        goTo(BookmarksListPage);
     }
 
     onNameChange(e) {

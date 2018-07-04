@@ -1,9 +1,7 @@
-import styles from "../../scss/components/url-list-item.scss";
+import styles from "../../scss/components/bookmark-list-item.scss";
 import React from 'react'
-import EditUrlPage from '../pages/EditUrlPage'
-import { Link } from 'route-lite';
 
-export default class UrlListItem extends React.Component {
+export default class BookmarkListItem extends React.Component {
     constructor(props) {
         super(props);
 
@@ -23,27 +21,27 @@ export default class UrlListItem extends React.Component {
 
     render(){
         return (
-            <li className={styles.urlListItem}>
+            <li className={styles.BookmarkListItem}>
                 <div className={styles.content}>
-                    { this.props.name }
+                    <span className={styles.bookmarkName}>{ this.props.name } </span>
+                    <span className={styles.bookmarkTemplate}>{ this.props.template} </span>
                     <span className={styles.collapseButton}></span>
                 </div>
                 <div className={ styles.parametesPrompt }>
                     { this.props.parameters.map(parameter => 
                         <div>
-                            <span> {parameter} </span>
+                            <label> {parameter} </label>
                             <input  
+                                id={parameter}
                                 type="text"       
                                 value={this.state.parameterValues[parameter]} 
                                 onChange={ this.handleParameterValueChange.bind(this) } 
-                                id={parameter} />
+                             />
                         </div>
-                        
                     )}
                 </div>
                 <div className={styles.actions}>
                     <button>Edit</button>
-                    <Link component={ EditUrlPage }> LALALA </Link>
                     <button onClick={ () => this.props.deleteBookmark(this.props.id) }> Delete</button>
                     <button onClick={ () => this.props.openBookmarkRequest(this.props.template, this.state.parameterValues) }>Open</button>
                 </div>
