@@ -1,14 +1,14 @@
 import React from 'react'
-import UrlListItem from './UrlListItem'
-import { openBookmarkRequest } from '../actions/actions'
+import AddBookmarkForm from './AddBookmarkForm'
+import { saveNewBookmark } from '../actions/actions'
 
 import { connect } from 'react-redux'
 
 const mapDispatchToProps = {
-    openBookmarkRequest
+    saveNewBookmark
 };
 
 export default connect(
     null,
     mapDispatchToProps
-)(UrlListItem);
+)(AddBookmarkForm);

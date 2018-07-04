@@ -3,6 +3,9 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Router, { Link, goBack, goTo } from 'route-lite';
 import { Provider } from 'react-redux';
+import { PersistGate } from 'redux-persist/integration/react'
+import createSagaMiddleware from 'redux-saga'
+import mySaga from './sagas/sagas'
 
 import configureStore from './store/configureStore';
 import rootReducer from './reducers/root-reducer';
@@ -12,12 +15,9 @@ import appStyles from '../scss/app.scss';
 
 import UrlsListPage from './pages/UrlsListPage';
 
-import createSagaMiddleware from 'redux-saga'
-import mySaga from './sagas/sagas'
-
 const sagaMiddleware = createSagaMiddleware();
 
-const store = configureStore([sagaMiddleware]);
+const { store, persistor } = configureStore([sagaMiddleware]);
 
 sagaMiddleware.run(mySaga);
 
@@ -25,9 +25,11 @@ class App extends React.Component {
     render() {
       return (
         <Provider store={store}>
-            <Router>
-                <UrlsListPage> </UrlsListPage>
-            </Router>
+            <PersistGate loading={null} persistor={persistor}>
+                <Router>
+                    <UrlsListPage> </UrlsListPage>
+                </Router>
+            </PersistGate>
         </Provider>
       );
     }

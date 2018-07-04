@@ -37,6 +37,7 @@
     "npm": "^6.1.0",
     "postcss-modules": "^1.1.0",
     "redux-devtools": "^3.4.1",
+    "redux-persist": "^5.10.0",
     "remote-redux-devtools": "^0.5.12",
     "sass-loader": "^7.0.3",
     "style-loader": "^0.21.0",
