@@ -13,6 +13,7 @@ import rootReducer from './reducers/root-reducer';
 import resetStyles from '../scss/reset.scss';
 import appStyles from '../scss/app.scss';
 
+import Header from './components/Header'
 import BookmarksListPage from './pages/BookmarksListPage';
 
 const sagaMiddleware = createSagaMiddleware();
@@ -26,6 +27,8 @@ class App extends React.Component {
       return (
         <Provider store={store}>
             <PersistGate loading={null} persistor={persistor}>
+                <Header>
+                 </Header>
                 <Router>
                     <BookmarksListPage> </BookmarksListPage>
                 </Router>

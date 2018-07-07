@@ -28,6 +28,10 @@ module.exports = {
             }
           },
           {
+            test: /\.png$/,
+            loader: 'url-loader'
+          },
+          {
             test: /\.scss$/,
             use: [
               {

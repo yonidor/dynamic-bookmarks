@@ -1,0 +1,43 @@
+.actionBtn {
+    background-size: cover;
+    padding: 0;
+    margin: 0;
+    border: 0;
+    outline: none;
+    margin-left: 10px;
+    opacity: 0.8;
+
+    &:hover{
+        opacity: 1;
+    }
+}
+
+.small {
+    width: 20px;
+    height: 20px;
+}
+
+.medium {
+    width: 32px;
+    height: 32px;
+}
+
+.deleteBtn{
+    background-image: url("/src/images/icons/delete.png");
+}
+
+.editBtn{
+    background-image: url("/src/images/icons/edit.png");
+}
+
+.openBtn{
+    background-image: url("/src/images/icons/play.png");
+}
+
+.collapseBtn{
+    background-image: url("/src/images/icons/collapse.png");
+}
+
+.addBtn{
+    background-image: url("/src/images/icons/add.png");
+}

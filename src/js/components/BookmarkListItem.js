@@ -1,12 +1,16 @@
 import styles from "../../scss/components/bookmark-list-item.scss";
 import React from 'react'
+import { goTo } from 'route-lite';
+import EditBookmarkPage from "../pages/EditBookmarkPage";
+import ActionButton from '../components/ActionButton';
 
 export default class BookmarkListItem extends React.Component {
     constructor(props) {
         super(props);
 
         this.state = {
-            parameterValues: {}
+            parameterValues: {},
+            isCollpsed: true
         }
         for (var i=0; i < props.parameters; i++)
             state.parameterValueChanged[parameters[i]] = "";
@@ -19,18 +23,26 @@ export default class BookmarkListItem extends React.Component {
         this.setState({parameterValues})
     }
 
+    toggleCollapse(){
+        this.setState({isCollpsed: !this.state.isCollpsed});
+    }
+
     render(){
         return (
-            <li className={styles.BookmarkListItem}>
+            <li className={styles.BookmarkListItem + " " + (this.state.isCollpsed ? styles.collapsed : "")}>
                 <div className={styles.content}>
-                    <span className={styles.bookmarkName}>{ this.props.name } </span>
-                    <span className={styles.bookmarkTemplate}>{ this.props.template} </span>
-                    <span className={styles.collapseButton}></span>
+                    <ActionButton type="collapse" size='small' additionalClassNames={ [styles.collapseBtn] } onClick={ this.toggleCollapse.bind(this)   } />
+                    <div className={styles.bookmarkName}>
+                        { this.props.name } 
+                    </div>
+                    <div className={styles.bookmarkTemplate} title={ this.props.template }>
+                        { this.props.template} 
+                    </div>
                 </div>
-                <div className={ styles.parametesPrompt }>
+                <div className={ styles.parametersPrompt }>
                     { this.props.parameters.map(parameter => 
                         <div>
-                            <label> {parameter} </label>
+                            <label className={styles.paramLabel}> {parameter} </label>
                             <input  
                                 id={parameter}
                                 type="text"       
@@ -41,9 +53,9 @@ export default class BookmarkListItem extends React.Component {
                     )}
                 </div>
                 <div className={styles.actions}>
-                    <button>Edit</button>
-                    <button onClick={ () => this.props.deleteBookmark(this.props.id) }> Delete</button>
-                    <button onClick={ () => this.props.openBookmarkRequest(this.props.template, this.state.parameterValues) }>Open</button>
+                    <ActionButton type="edit" onClick={ () => goTo(EditBookmarkPage, {bookmark: this.props.bookmark}) } />
+                    <ActionButton type="delete" onClick={ () => this.props.deleteBookmark(this.props.id) } />
+                    <ActionButton type="open" onClick={ () => this.props.openBookmarkRequest(this.props.template, this.state.parameterValues) } />
                 </div>
             </li>
         )       

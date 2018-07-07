@@ -36,14 +36,93 @@ table {
   border-spacing: 0; }
 
 #react-app-container {
-  width: 300px;
-  height: 500px; }
+  width: 400px;
+  height: 500px;
+  font-family: arial; }
+
+.header__header--3WkJv {
+  text-align: center;
+  padding: 10px 10px;
+  position: relative; }
+
+.header__addBtn--3R6dR {
+  position: absolute;
+  right: 15px; }
+
+.action-button__actionBtn--2jZdV {
+  background-size: cover;
+  padding: 0;
+  margin: 0;
+  border: 0;
+  outline: none;
+  margin-left: 10px;
+  opacity: 0.8; }
+  .action-button__actionBtn--2jZdV:hover {
+    opacity: 1; }
+
+.action-button__small--30FEh {
+  width: 20px;
+  height: 20px; }
+
+.action-button__medium--1fsiN {
+  width: 32px;
+  height: 32px; }
+
+.action-button__deleteBtn--7br_K {
+  background-image: url("/src/images/icons/delete.png"); }
+
+.action-button__editBtn--24Wyh {
+  background-image: url("/src/images/icons/edit.png"); }
+
+.action-button__openBtn--3zQMf {
+  background-image: url("/src/images/icons/play.png"); }
+
+.action-button__collapseBtn--Ephg- {
+  background-image: url("/src/images/icons/collapse.png"); }
+
+.action-button__addBtn--3GptP {
+  background-image: url("/src/images/icons/add.png"); }
 
 .list__list--3DgIE {
   list-style-type: none; }
 
-.bookmark-list-item__content--1vyis {
-  min-height: 60px;
-  padding: 10px 10px; }
+.bookmark-list-item__BookmarkListItem--20e0e {
+  border-bottom: 1px solid #eee;
+  padding: 10px 10px;
+  max-height: 600px;
+  line-height: 1.5em;
+  transition: max-height 0.5s ease-in-out;
+  overflow: hidden; }
+  .bookmark-list-item__BookmarkListItem--20e0e.bookmark-list-item__collapsed--1n0BF {
+    max-height: 20px; }
 
+.bookmark-list-item__content--1vyis {
+  position: relative; }
+
+.bookmark-list-item__actions--33RBA {
+  margin-top: 15px;
+  text-align: right; }
+
+.bookmark-list-item__bookmarkName--1t_Yj {
+  font-size: 18px;
+  font-weight: bold; }
+
+.bookmark-list-item__bookmarkTemplate--2nQNt {
+  margin-top: 5px;
+  font-style: italic; }
+
+.bookmark-list-item__parametersPrompt--mwfj2 {
+  margin-top: 10px; }
+
+.bookmark-list-item__paramLabel--3SUH_ {
+  margin-right: 5px; }
+
+.bookmark-list-item__collapseBtn--2UI1I {
+  position: absolute;
+  right: 5px; }
+
+.bookmark-list-item__bookmarkTemplate--2nQNt {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis; }
 

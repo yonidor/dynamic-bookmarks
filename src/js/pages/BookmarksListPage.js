@@ -6,10 +6,6 @@ import { goTo } from 'route-lite';
 
 import List from '../components/list';
 import BookmarkListItemContainer from '../components/BookmarkListItemContainer';
-import AddBookmarkPage from './AddBookmarkPage';
-import BookmarkListItem from '../components/BookmarkListItem';
-import ActionsPane from '../components/ActionsPane';
-import ActionButton from '../components/ActionButton';
 
 class BookmarksListPage extends React.Component {
     constructor(props){
@@ -25,13 +21,11 @@ class BookmarksListPage extends React.Component {
                         <BookmarkListItemContainer
                             key={bookmark.id}
                             {...bookmark}
+                            bookmark={bookmark}
                         />
                     )
                 }
             </List>
-            <ActionsPane>
-                <ActionButton type='add-bookmark' onClick={ () => goTo(AddBookmarkPage) }> Add Bookmark </ActionButton>
-            </ActionsPane>
         </div>
       );
     }
