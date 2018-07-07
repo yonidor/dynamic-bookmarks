@@ -27,11 +27,18 @@ export default class BookmarkListItem extends React.Component {
         this.setState({isCollpsed: !this.state.isCollpsed});
     }
 
+    handleKeyPress(event) {
+        debugger;
+        if(event.key == 'Enter'){
+            this.props.openBookmarkRequest(this.props.template, this.state.parameterValues)
+        }
+      }
+
     render(){
         return (
-            <li className={styles.BookmarkListItem + " " + (this.state.isCollpsed ? styles.collapsed : "")}>
+            <li className={styles.BookmarkListItem + " " + (this.state.isCollpsed ? styles.collapsed : "") } onKeyPress={ this.handleKeyPress.bind(this) }>
                 <div className={styles.content}>
-                    <ActionButton type="collapse" size='small' additionalClassNames={ [styles.collapseBtn] } onClick={ this.toggleCollapse.bind(this)   } />
+                    <ActionButton type="collapse" size='small' additionalClassNames={ [styles.collapseBtn] } onClick={ this.toggleCollapse.bind(this) } />
                     <div className={styles.bookmarkName}>
                         { this.props.name } 
                     </div>
