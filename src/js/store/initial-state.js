@@ -3,7 +3,7 @@ export default {
 }
 
 // {
-//   itemsList:  [{
+//   bookmarks:  [{
 //     id: "id1",
 //     name: "Product page",
 //     template: "http://www.shopyourway.com/{catalogId}/{productId}",
