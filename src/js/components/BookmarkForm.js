@@ -1,23 +1,18 @@
 import React from 'react'
 import { Link, goTo } from 'route-lite';
-import BookmarksListPage from "../pages/BookmarksListPage";
+// import BookmarksListPage from "../pages/BookmarksListPage";
+import { extract_parameters } from '../utils/parameter_extractor';
 
-export default class EditBookmarkForm extends React.Component {
+export default class BookmarkForm extends React.Component {
     constructor(props) {
         super(props);
         this.onNameChange = this.onNameChange.bind(this);
         this.onTemplateChange = this.onTemplateChange.bind(this);
-        this.onSave = this.onSave.bind(this);
         
         this.state = {
-            name: props.name,
-            template: props.template,
+            name: props.name || "",
+            template: props.template || ""
         }   
-    }
-
-    onSave(e){
-        this.props.saveExistingBookmark(this.props.id, this.state.name, this.state.template);
-        goTo(BookmarksListPage);
     }
 
     onNameChange(e) {
@@ -39,13 +34,16 @@ export default class EditBookmarkForm extends React.Component {
                     <label>Name</label>
                     <input value={ this.state.name } onChange={ this.onNameChange } />
                 </div>
-                
                 <div>
                     <label>Template</label>
                     <input value={ this.state.template } onChange={ this.onTemplateChange } />
                 </div>
+                <div>
+                    <label>Parameters: </label>
+                    <label>{ extract_parameters(this.state.template).join(', ') }</label>
+                </div>
 
-                <button onClick={ this.onSave }> Save </button>
+                <button onClick={ () => this.props.onBookmarkSaved(this.props.id, this.state.name, this.state.template) }> Save </button>
             </div>
         )       
     }

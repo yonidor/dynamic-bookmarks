@@ -17,22 +17,18 @@ export function deleteBookmark(bookmarkId){
 }
 
 export function saveExistingBookmark(bookmarkId, name, template){
-    return (dispatch) => {
-        dispatch({
-            type: SAVE_EXISTING_BOOKMARK,
-            bookmarkId: bookmarkId,
-            name: name,
-            template: template
-        });
+    return {
+        type: SAVE_EXISTING_BOOKMARK,
+        bookmarkId: bookmarkId,
+        name: name,
+        template: template
     }
 }
 
 export function saveNewBookmark(name, template){
-    return (dispatch) => {
-        dispatch({
-            type: SAVE_NEW_BOOKMARK,
-            name: name,
-            template: template
-        });
+    return {
+        type: SAVE_NEW_BOOKMARK,
+        name: name,
+        template: template
     }
 }

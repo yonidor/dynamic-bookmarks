@@ -1,14 +1,19 @@
 import React from 'react'
-import AddBookmarkForm from './AddBookmarkForm'
+import BookmarkForm from './BookmarkForm'
 import { saveNewBookmark } from '../actions/actions'
 
 import { connect } from 'react-redux'
+import { goTo } from 'route-lite';
+import BookmarksListPage from '../pages/BookmarksListPage';
 
 const mapDispatchToProps = {
-    saveNewBookmark
+    onBookmarkSaved: (_, name, template) => {
+        goTo(BookmarksListPage);
+        return saveNewBookmark(name, template);
+    }
 };
 
 export default connect(
     null,
     mapDispatchToProps
-)(AddBookmarkForm);
+)(BookmarkForm);

@@ -28,7 +28,6 @@ export default class BookmarkListItem extends React.Component {
     }
 
     handleKeyPress(event) {
-        debugger;
         if(event.key == 'Enter'){
             this.props.openBookmarkRequest(this.props.template, this.state.parameterValues)
         }
