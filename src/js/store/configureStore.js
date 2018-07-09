@@ -3,6 +3,9 @@ import rootReducer from '../reducers/root-reducer';
 import thunk from 'redux-thunk';
 import { persistStore, persistReducer } from 'redux-persist'
 import storage from 'redux-persist/lib/storage'
+import { composeWithDevTools } from 'remote-redux-devtools';
+
+const composeEnhancers = composeWithDevTools({ realtime: true });
 
 export default function configureStore(middlewares) {
 
@@ -14,8 +17,7 @@ export default function configureStore(middlewares) {
   const persistedReducer = persistReducer(persistConfig, rootReducer)
   const store = createStore(
     persistedReducer,
-    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
-    applyMiddleware(thunk, ...middlewares)
+    composeEnhancers(applyMiddleware(thunk, ...middlewares))
   );
 
   return {
